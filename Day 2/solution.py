@@ -117,7 +117,6 @@ class Examples(TestCase):
 
         print(f"Unittest {Examples.test_part_two_example} was successful.")
 
-
 class Solutions(TestCase):
     def test_part_one(self) -> None:
         print(f"\nCalculating solution to {Solutions.test_part_one}")

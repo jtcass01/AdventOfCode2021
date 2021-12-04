@@ -102,11 +102,11 @@ class DiagnosticReport(object):
             return gamma_rate * epislon_rate
 
     @staticmethod
-    def load(diagnostirc_report_file_path: str) -> DiagnosticReport:
-        assert isfile(diagnostirc_report_file_path), f"File not found: {diagnostirc_report_file_path}"
+    def load(diagnostic_report_file_path: str) -> DiagnosticReport:
+        assert isfile(diagnostic_report_file_path), f"File not found: {diagnostic_report_file_path}"
         diagnostic_values: List[array] = []
 
-        with open(diagnostirc_report_file_path) as diagnostic_report_file:
+        with open(diagnostic_report_file_path) as diagnostic_report_file:
             for file_line in diagnostic_report_file.readlines():
                 report_line: array = array([int(value) for value in file_line if value != "\n"])
                 diagnostic_values.append(report_line)
@@ -129,7 +129,7 @@ class Examples(TestCase):
     def test_part_one_example(self) -> None:
         print(f"\nPerforming unittest: {Examples.test_part_one_example}")
 
-        diagnostic_report: DiagnosticReport = DiagnosticReport.load(diagnostirc_report_file_path=join(dirname(__file__), "example.txt"))
+        diagnostic_report: DiagnosticReport = DiagnosticReport.load(diagnostic_report_file_path=join(dirname(__file__), "example.txt"))
         self.assertEqual(diagnostic_report.gamma_rate, 22)
         self.assertEqual(diagnostic_report.epsilon_rate, 9)
         self.assertEqual(diagnostic_report.power_consuption, 198)
