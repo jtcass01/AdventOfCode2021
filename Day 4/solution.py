@@ -37,14 +37,11 @@ class BingoBoard(object):
             self.puzzle_states[row, column] = True
 
     def is_winner(self) -> bool:
-        def line_check(array_line: array) -> bool:
-            return alltrue(array_line)
-
         checks: array = array([
             # row check
-            any(apply_along_axis(line_check, axis=1, arr=self.puzzle_states)),
+            any(apply_along_axis(alltrue, axis=1, arr=self.puzzle_states)),
             # column check
-            any(apply_along_axis(line_check, axis=0, arr=self.puzzle_states))])
+            any(apply_along_axis(alltrue, axis=0, arr=self.puzzle_states))])
             # diagnal check
             #line_check(array_line=self.puzzle_states.diagonal()),
             #line_check(array_line=fliplr(self.puzzle_states).diagonal())])
@@ -136,7 +133,6 @@ class Examples(TestCase):
         print(f"Unittest {Examples.test_part_two_example} was successful.")
 
 class Solutions(TestCase):
-    pass
     def test_part_one(self) -> None:
         print(f"\nCalculating solution to {Solutions.test_part_one}")
 
