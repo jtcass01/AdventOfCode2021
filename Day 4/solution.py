@@ -43,8 +43,8 @@ class BingoBoard(object):
             # column check
             any(apply_along_axis(alltrue, axis=0, arr=self.puzzle_states))])
             # diagnal check
-            #line_check(array_line=self.puzzle_states.diagonal()),
-            #line_check(array_line=fliplr(self.puzzle_states).diagonal())])
+            #alltrue(self.puzzle_states.diagonal()),
+            #alltrue(fliplr(self.puzzle_states).diagonal()])
 
         return any(checks)
 
