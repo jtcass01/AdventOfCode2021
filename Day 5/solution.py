@@ -11,9 +11,6 @@ from os.path import isfile, join, dirname
 from typing import List, Tuple, Dict
 from parse import parse
 
-# 3rd Party modules
-from numpy import array
-
 @unique
 class PART(Enum):
     ONE: str = "one"
@@ -91,7 +88,7 @@ class Puzzle(object):
     def load(puzzle_input_file_path: str, part: PART) -> Puzzle:
         assert isfile(puzzle_input_file_path), f"File not found: {puzzle_input_file_path}"
 
-        lines: List[array] = []
+        lines: List[Line] = []
         with open(puzzle_input_file_path) as puzzle_input_file:
             for text_line in puzzle_input_file.readlines():
                 x1, y1, x2, y2 = parse(Line.FORMAT, text_line)
