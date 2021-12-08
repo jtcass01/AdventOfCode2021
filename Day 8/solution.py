@@ -6,15 +6,11 @@ __email__ = "jacobtaylorcassady@outlook.com"
 
 # Built-in modules
 from unittest import TestCase, main
-from enum import unique, Enum
+from enum import Enum, unique
 from os.path import isfile, join, dirname
 from typing import List, Dict, Set
 
 @unique
-class PART(Enum):
-    ONE: str = "one"
-    TWO: str = "two"
-
 class DIGIT(Enum):
     """ 0:      1:      2:      3:      4:
          aaaa    ....    aaaa    aaaa    ....
@@ -32,9 +28,7 @@ class DIGIT(Enum):
          dddd    dddd    ....    dddd    dddd
         .    f  e    f  .    f  e    f  .    f
         .    f  e    f  .    f  e    f  .    f
-         gggg    gggg    ....    gggg    gggg        
-        
-        """
+         gggg    gggg    ....    gggg    gggg"""
     ZERO: int = 0
     ONE: int = 1
     TWO: int = 2
@@ -138,6 +132,7 @@ class DIGIT(Enum):
         return None
 
 
+@unique
 class SEGMENT(Enum):
     A: str = "a" # Occurs 8/10 times
     B: str = "b" # Occurs 6/10 times
@@ -160,6 +155,8 @@ class SEGMENT(Enum):
         elif count == 9:
             return {SEGMENT.F}
 
+
+@unique
 class WIRE(Enum):
     A: str = "a"
     B: str = "b"
