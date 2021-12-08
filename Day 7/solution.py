@@ -33,7 +33,7 @@ class CrabSubmarines(object):
             return int(sum(abs(self.crab_starting_positions - median(self.crab_starting_positions))))
         elif part == PART.TWO:
             return int(min(sum(PART.TWO.fuel_usage(abs(self.crab_starting_positions - floor(mean(self.crab_starting_positions))))),
-                           sum(PART.TWO.fuel_usage(abs(self.crab_starting_positions - ceil(mean(self.crab_starting_positions)))))))
+                        sum(PART.TWO.fuel_usage(abs(self.crab_starting_positions - ceil(mean(self.crab_starting_positions)))))))
 
     @staticmethod
     def load(puzzle_input_file_path: str) -> CrabSubmarines:
