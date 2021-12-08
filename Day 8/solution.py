@@ -313,7 +313,7 @@ class Examples(TestCase):
         print(f"\nPerforming unittest: {Examples.test_part_one_example}")
 
         test_puzzle: Puzzle = Puzzle.load(puzzle_input_file_path=join(dirname(__file__), "example.txt"))
-        self.assertEqual(test_puzzle.count_digits([DIGIT.ONE, DIGIT.FOUR, DIGIT.SEVEN, DIGIT.EIGHT]), 26)
+        self.assertEqual(test_puzzle.count_digits({DIGIT.ONE, DIGIT.FOUR, DIGIT.SEVEN, DIGIT.EIGHT}), 26)
 
         print(f"Unittest {Examples.test_part_one_example} was successful.")
 
