@@ -80,7 +80,7 @@ class Cave(object):
         neighborhood: array = generate_binary_structure(len(self.height_map.shape), 2)
         local_min_locations: array = where(minimum_filter(self.height_map, footprint=neighborhood) == self.height_map)
 
-        basin_sizes: Union[List[int], array] = []
+        basin_sizes: List[int] = []
         for local_min_x, local_min_y in zip(local_min_locations[0], local_min_locations[1]):
             basin_sizes.append(size_local_basin(minimum_x=local_min_x, minimum_y=local_min_y))
 
