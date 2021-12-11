@@ -40,8 +40,6 @@ class OctopusConsortium(object):
                     if not flashed[flash_row, flash_column]:
                         self.octopuses[max(flash_row - 1, 0):min(flash_row + 2, self.octopuses.shape[0]), 
                                        max(flash_column - 1, 0):min(flash_column + 2, self.octopuses.shape[1])] += 1
-
-                        # Flash
                         flashed[flash_row, flash_column] = True
                         flash_count += 1
             self.octopuses[flashed] = 0
