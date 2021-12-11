@@ -34,7 +34,6 @@ class OctopusConsortium(object):
             self.octopuses += 1
 
             while not self.flash_finished(flashed=flashed):
-                
                 flash_indices: Tuple[array, array] = where(self.octopuses > 9)
                 
                 for flash_row, flash_column in zip(flash_indices[0], flash_indices[1]):
