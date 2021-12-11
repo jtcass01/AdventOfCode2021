@@ -38,23 +38,8 @@ class OctopusConsortium(object):
                 
                 for flash_row, flash_column in zip(flash_indices[0], flash_indices[1]):
                     if not flashed[flash_row, flash_column]:
-                        neighborhood_row_start: int = flash_row - 1
-                        if neighborhood_row_start < 0:
-                            neighborhood_row_start = 0
-
-                        neighborhood_row_stop: int = flash_row + 2
-                        if neighborhood_row_stop >= self.octopuses.shape[0]:
-                            neighborhood_row_stop = self.octopuses.shape[0]
-
-                        neighborhood_column_start: int = flash_column - 1
-                        if neighborhood_column_start < 0:
-                            neighborhood_column_start = 0
-
-                        neighborhood_column_stop: int = flash_column + 2
-                        if neighborhood_column_stop >= self.octopuses.shape[1]:
-                            neighborhood_column_stop = self.octopuses.shape[1]
-
-                        self.octopuses[neighborhood_row_start:neighborhood_row_stop, neighborhood_column_start:neighborhood_column_stop] += 1
+                        self.octopuses[max(flash_row - 1, 0):min(flash_row + 2, self.octopuses.shape[0]), 
+                                       max(flash_column - 1, 0):min(flash_column + 2, self.octopuses.shape[1])] += 1
 
                         # Flash
                         flashed[flash_row, flash_column] = True
